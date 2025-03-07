@@ -672,7 +672,7 @@ def _read_traceh_eb6(fp):
     traceh['assembly_serial_number'] = _decode_bin(buf[9:12])
     traceh['location_in_assembly'] = _decode_bin(buf[12:13])
     # 13-15 : not used
-    _st = _decode_bin(buf[16:17])
+    _st = 0 # _decode_bin(buf[16:17])
     traceh['subunit_type'] = _subunit_types[_st]
     _ct = _decode_bin(buf[17:18])
     traceh['channel_type'] = _channel_types[_ct]
@@ -686,7 +686,7 @@ def _read_traceh_eb7(fp):
     """Read trace header extension block #7, SERCEL format."""
     buf = fp.read(32)
     traceh = OrderedDict()
-    _cut = _decode_bin(buf[:1])
+    _cut = 0 # _decode_bin(buf[:1])
     traceh['control_unit_type'] = _control_unit_types[_cut]
     traceh['control_unit_serial_number'] = _decode_bin(buf[1:4])
     traceh['channel_gain_scale'] = _decode_bin(buf[4:5])
